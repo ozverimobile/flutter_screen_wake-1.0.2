@@ -1,13 +1,16 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screen_wake/flutter_screen_wake.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -100,31 +103,45 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Example Flutter Screen Wake'),
         ),
         body: Center(
-          child: Column(children: [
-            SizedBox(height: 20,),
+            child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
             Text('Keep ON: $_keepOn\n'),
-            InkWell(child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Change Wake'),), onTap: changeKeep
+            InkWell(
+                onTap: changeKeep,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(color: Colors.blue),
+                  child: const Text('Change Wake'),
+                )),
+
+            ///
+            ///
+            const SizedBox(
+              height: 20,
             ),
-            ///
-            ///
-            SizedBox(height: 20,),
             Text('Brightness: $_brightness\n'),
-            InkWell(child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Max brightness'),), onTap: changeBrightnessMax
+            InkWell(
+                onTap: changeBrightnessMax,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(color: Colors.blue),
+                  child: const Text('Max brightness'),
+                )),
+            const SizedBox(
+              height: 20,
             ),
-            SizedBox(height: 20,),
-            InkWell(child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Min brightness'),), onTap: changeBrightnessMin
-            )
-          ],)
-        ),
+            InkWell(
+                onTap: changeBrightnessMin,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(color: Colors.blue),
+                  child: const Text('Min brightness'),
+                ))
+          ],
+        )),
       ),
     );
   }
